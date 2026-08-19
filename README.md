@@ -42,12 +42,24 @@ towards companies that failed. Read it as a large improvement rather than a fix.
 
 ## Results, out of sample
 
-| model | accuracy | AUC | z |
-|---|---|---|---|
-| Decision tree | 0.5083 | 0.5070 | +8.0 |
-| Random forest | 0.5068 | 0.5120 | +13.7 |
-| XGBoost | 0.5076 | 0.5111 | +12.6 |
-| Base rate | 0.5009 | 0.5000 | 0.0 |
+Every model is measured against two yardsticks: chance, and the single best feature used on
+its own. The second is the one that matters, because if one sorted column does the same job
+then the algorithm is decoration.
+
+| target | model | AUC | vs 0.50 | vs best feature |
+|---|---|---|---|---|
+| 5 day return | best feature, `mom_252_rk` | 0.5126 | +0.0126 | |
+| 5 day return | Decision tree | 0.5070 | +0.0070 | -0.0056 |
+| 5 day return | Random forest | 0.5120 | +0.0120 | -0.0006 |
+| 5 day return | XGBoost | 0.5111 | +0.0111 | -0.0015 |
+| 21 day volatility | best feature, `vol_126_rk` | 0.8299 | +0.3299 | |
+| 21 day volatility | Decision tree | 0.8275 | +0.3275 | -0.0024 |
+| 21 day volatility | Random forest | 0.8344 | +0.3344 | **+0.0045** |
+| 21 day volatility | XGBoost | 0.8384 | +0.3384 | **+0.0085** |
+
+Four of the six lose to a single column. On return the signal is momentum, and sorting stocks
+by their one year return beats all three models. On volatility there is far more signal, it is
+persistence, and the ensembles finally add something, under a point of AUC.
 
 PCA recovers level, slope and curvature from daily changes in the curve, 95.6% of the variation
 in three components. Lasso cuts 50 candidates to 8, out of sample R2 0.091 against -0.008 for
