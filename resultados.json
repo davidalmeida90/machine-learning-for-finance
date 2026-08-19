@@ -1,0 +1,37 @@
+{
+ "pca": {
+  "var": [
+   78.27,
+   13.51,
+   3.86,
+   1.9,
+   0.79
+  ],
+  "tres_primeiras": 95.64,
+  "observacoes": 9550,
+  "de": "1981-09-02",
+  "ate": "2026-08-18"
+ },
+ "lasso": {
+  "candidatos": 50,
+  "vivos": 8,
+  "nomes": [
+   "EFA_mom21",
+   "XLE_mom21",
+   "GLD_vol21",
+   "IWM_vol21",
+   "USO_vol21",
+   "XLRE_vol21",
+   "BAMLH0A0HYM2",
+   "DTWEXBGS"
+  ],
+  "alpha": 0.006782227571410777,
+  "r2_teste": 0.09082980602325996,
+  "r2_media": -0.008034523790911408
+ },
+ "periodo": {
+  "de": "2023-08-21",
+  "ate": "2026-07-17",
+  "linhas": 729
+ }
+}

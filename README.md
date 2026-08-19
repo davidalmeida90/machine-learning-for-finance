@@ -29,20 +29,56 @@ Research 259(2). Three choices carry their method, and all three are reproduced 
 Their headline, before costs, on 1992 to 2015: 0.43% a day for the random forest at t = 14.93.
 Neural networks are left out here, so three of their four models appear.
 
+## What is in here
+
+Two ways through the same work, and they produce the same numbers.
+
+| file | what it is |
+|---|---|
+| `machine_learning_finance.ipynb` | the whole thing top to bottom, 36 cells, every chart inline |
+| `dados.py` | builds the two caches: index membership from Wikipedia, prices from Yahoo |
+| `krauss.py` | the replication engine, sliding window and long short portfolio |
+| `krauss_auc.py` | ROC curves in and out of sample, plus the look ahead and survivorship tests |
+| `pca_lasso.py` | PCA on the Treasury curve and Lasso on the macro panel, fully standalone |
+| `figuras.py` | the charts the write up uses |
+| `*.json` | results, so you can compare against a run of your own without repeating it |
+
 ## Running it
 
 ```bash
 pip install yfinance pandas numpy scikit-learn xgboost matplotlib requests lxml pyarrow
+```
+
+Notebook path, nothing else needed:
+
+```bash
 jupyter notebook machine_learning_finance.ipynb
+```
+
+Script path, and order matters because the engines read caches rather than build them:
+
+```bash
+python dados.py                  # 39 Wikipedia revisions, 640 tickers, writes both caches
+python krauss.py --desde 2007-01-01 --ate 2015-12-31    # the five window replication
+python krauss_auc.py             # ROC curves and the integrity tests
+python figuras.py                # the charts
+
+python dados.py --ate 2026-08-19 # wider panel, then:
+python krauss.py                 # all fifteen windows through to 2025
+
+python pca_lasso.py              # independent of the two above, downloads its own data
 ```
 
 No API key and no paid data. Prices come from Yahoo Finance, rates and macro from the public
 FRED CSV endpoint, and index membership from the Wikipedia API, all fetched at run time.
 
-Budget fifteen to twenty minutes on the first run, most of it downloading 640 tickers and 39
-Wikipedia revisions. Fitting the fifteen models on panels of about 217,000 rows takes roughly four
-minutes. The notebook writes `membership.json` and `precos.parquet` next to itself and reads them
-back by relative path, so keep them together and a rerun skips the download.
+Budget fifteen to twenty minutes on the first run, most of it downloading. Fitting the fifteen
+models on panels of about 217,000 rows takes roughly four minutes. `membership.json` and
+`precos.parquet` are written next to the scripts and read back by relative path, so keep them
+together and a rerun skips the download.
+
+Comments inside the `.py` engines are in Portuguese. Notebook and write up are in English, and
+they walk the same path, so nothing is only explained in one language.
 
 ## Survivorship bias
 

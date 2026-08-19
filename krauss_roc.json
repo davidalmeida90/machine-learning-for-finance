@@ -1,0 +1,14 @@
+{
+ "decision tree": {
+  "auc_treino": 0.532,
+  "auc_teste": 0.5051
+ },
+ "random forest": {
+  "auc_treino": 0.6272,
+  "auc_teste": 0.5095
+ },
+ "xgboost": {
+  "auc_treino": 0.5458,
+  "auc_teste": 0.5093
+ }
+}
