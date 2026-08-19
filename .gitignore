@@ -1,0 +1,4 @@
+__pycache__/
+*.parquet
+membership.json
+.ipynb_checkpoints/
