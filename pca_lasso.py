@@ -39,7 +39,7 @@ try:
 except Exception:
     pass
 
-# Paleta clara, para a pagina do site. O carrossel usa tema escuro, o site nao.
+# Paleta clara, para a pagina do site.
 TINTA, GRADE = "#1b2a4a", "#dfe3ec"
 AZUL, TEAL, AMBAR, UVA, ROSA = "#2f5db0", "#0ca678", "#d97706", "#7048e8", "#d6336c"
 FUNDO = "#ffffff"
