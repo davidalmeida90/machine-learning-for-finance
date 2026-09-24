@@ -1,0 +1,23 @@
+{
+ "ffn_quotes": 998,
+ "ffn_spot": 767.32,
+ "ffn_rmse": 0.251,
+ "rnn_train_to": "2021-09-07",
+ "rnn_n": 4978,
+ "rnn_corr": 0.457,
+ "rnn_rmse": 7.74,
+ "tr_corr": 0.446,
+ "tr_rmse": 7.81,
+ "cnn_n": 153000,
+ "cnn_oos_from": "2023-03-20",
+ "cnn_acc": 0.553,
+ "cnn_names": 45,
+ "ae_n": 45,
+ "ae_dias": 3440,
+ "ae_oos_from": "2023-04-04",
+ "ae_r2": 0.35,
+ "ae_pior": "2025-04-09",
+ "cnn_volcorr": 0.225,
+ "cnn_vq1": 22.9,
+ "cnn_vq5": 30.6
+}
