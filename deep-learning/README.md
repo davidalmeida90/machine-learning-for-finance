@@ -101,6 +101,7 @@ pip install torch yfinance pandas numpy matplotlib
 ```
 
 ```bash
+cd deep-learning
 python feedforward_lstm_transformer.py   # live option chain, then 20 years of SPY
 python cnn_autoencoder.py                # 45 names, 153,000 images, then the cross section
 python baselines.py                      # after both, reads figures/cnn_eval.npz

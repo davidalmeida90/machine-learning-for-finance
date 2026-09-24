@@ -11,7 +11,7 @@ networks were scored on.
   3. CNN magnitude target: trailing 20 day realised vol as the baseline, on the same
      out of sample (date, ticker) rows the CNN was scored on.
 
-Writes baselines.json at the repo root and two charts into figures/. Runs with py -3.11 for torch.
+Writes baselines.json next to this file and two charts into figures/. Runs with py -3.11 for torch.
 
   py -3.11 baselines.py
 """

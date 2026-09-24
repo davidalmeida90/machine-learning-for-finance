@@ -14,6 +14,14 @@ methods on rates data, in one notebook that runs top to bottom.
 Write up, with the charts and the reasoning:
 <https://davidariasfinance.com/scripts/machine-learning-for-finance/>
 
+## Deep learning, in [deep-learning/](deep-learning/)
+
+Five architectures, each on the job it was invented for: a feed forward network fits the SPY
+implied volatility surface, an LSTM and a transformer forecast realised volatility, a CNN reads
+20 days of prices as a picture, and an autoencoder finds latent factors in the cross section.
+Its own README has the results and how to run it, and the write up is at
+<https://davidariasfinance.com/scripts/deep-learning-for-finance/>.
+
 ## The paper
 
 Steps 4 to 7 rebuild **Krauss, Do and Huck (2017)**, *Deep neural networks, gradient-boosted
@@ -42,6 +50,7 @@ Two ways through the same work, and they produce the same numbers.
 | `pca_lasso.py` | PCA on the Treasury curve and Lasso on the macro panel, fully standalone |
 | `figuras.py` | the charts the write up uses |
 | `*.json` | results, so you can compare against a run of your own without repeating it |
+| `deep-learning/` | five deep learning architectures, with their own scripts, charts and README |
 
 ## Running it
 
